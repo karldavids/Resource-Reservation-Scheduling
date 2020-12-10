@@ -42,13 +42,7 @@
 
 		
 	
-		<resource>
-			<reference>
-				<!-- 本地资源定义（Hospital） -->
-				<reference value="StructureDefinition/Hospital"/>
-			</reference>
-			<description value="描述医院基本信息"/>
-		</resource>
+		
 
 		
 
