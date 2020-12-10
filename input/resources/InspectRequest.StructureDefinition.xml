@@ -10,6 +10,7 @@
   <title value="检查申请" />
   <status value="draft" />
   <date value="2020-12-07T02:05:12.157053+00:00" />
+  <description value="描述医院内 临床医生对患者提交检查申请的资源，包括影像、超声、病理、心电等。" />
   <fhirVersion value="4.0.0" />
   <mapping>
     <identity value="workflow" />
@@ -176,7 +177,7 @@
     <element id="ServiceRequest.category:CategoryCode">
       <path value="ServiceRequest.category" />
       <sliceName value="CategoryCode" />
-      <short value="检验申请的一级分类" />
+      <short value="检查申请的一级分类" />
       <definition value="为搜索、排序和显示目的而对服务进行分类的代码。如：CT检查、超声检查，MIR检查" />
       <max value="1" />
       <binding>
@@ -189,6 +190,7 @@
       <path value="ServiceRequest.category" />
       <sliceName value="otherCategory" />
       <short value="检查其他分类" />
+      <definition value="检查申请单的其他维度的分类情况。" />
     </element>
     <element id="ServiceRequest.priority">
       <path value="ServiceRequest.priority" />
@@ -208,7 +210,8 @@
     <element id="ServiceRequest.priority.extension:priority">
       <path value="ServiceRequest.priority.extension" />
       <sliceName value="priority" />
-      <short value="申请紧急" />
+      <short value="优先级" />
+      <definition value="描述处理 该请求的速度" />
       <max value="1" />
       <type>
         <code value="Extension" />
@@ -243,8 +246,8 @@
     </element>
     <element id="ServiceRequest.subject">
       <path value="ServiceRequest.subject" />
-      <short value="订购服务的个人或实体" />
-      <definition value="对谁执行服务。这通常是指病人，但也可以在动物、一组人或动物、透析仪等设备，甚至是位置(通常用于环境扫描)上提出请求" />
+      <short value="患者信息" />
+      <definition value="订购服务的个人或实体，对谁执行服务。这通常是指病人，但也可以在动物、一组人或动物、透析仪等设备，甚至是位置(通常用于环境扫描)上提出请求" />
       <type>
         <code value="Reference" />
         <profile value="http://StructureDefinition.hl7fhir.cn/Reference" />
@@ -263,6 +266,9 @@
       <path value="ServiceRequest.occurrence[x]" />
       <short value="执行日期" />
       <definition value="该申请执行的时间或者时间段或者频率。" />
+      <type>
+        <code value="dateTime" />
+      </type>
     </element>
     <element id="ServiceRequest.asNeeded[x]">
       <path value="ServiceRequest.asNeeded[x]" />
