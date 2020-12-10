@@ -40,9 +40,156 @@
 	<definition>
 		<!--0..* 生成IG需求信息。其中grouping节点可由IGPublisher自动定义，也可手动定义个性化需求。 -->
 
-		
+		<resource>
+			<reference>
+				<!-- 本地资源定义（LaboratoryRequest） -->
+				<reference value="StructureDefinition/laboratory-request"/>
+			</reference>
+			<description value="描述医院内 临床医生对患者提交实验室检验申请的资源。"/>
+		</resource>
+
+		<resource>
+			<reference>
+				<!-- 本地资源定义（LaboratoryReport） -->
+				<reference value="StructureDefinition/laboratory-report"/>
+			</reference>
+			<description value="对患者、患者组从中提取的标本进行的诊断试验的结果和解释。此报告包括了临床场景（如申请单、提供者信息），有些报告将单项指标结果、图像、文本和带编码的解释、以及带格式的诊断报告"/>
+		</resource>
+
+		<resource>
+			<reference>
+				<!-- 本地资源定义（LaboratoryRoutineObservation） -->
+				<reference value="StructureDefinition/laboratory-routine-observation"/>
+			</reference>
+			<description value="描述实验室常规检验的详细检验结果的反馈，如 生化检验、血液检验、临检检验。"/>
+		</resource>
+
+		<resource>
+			<reference>
+				<!-- 本地资源定义（LaboratorySpecimen） -->
+				<reference value="StructureDefinition/laboratory-specimen"/>
+			</reference>
+			<description value="在医院实验室检验中，用于分析的样品。"/>
+		</resource>
+
+		<resource>
+			<reference>
+				<!-- 本地资源定义（InspectReport） -->
+				<reference value="StructureDefinition/inspect-report"/>
+			</reference>
+			<description value="对患者、患者组从中提取的标本或者对其身体部位进行的诊断试验的结果和解释。此报告包括了临床场景（如申请单、提供者信息），有些报告将单项指标结果、图像、文本和带编码的解释、以及带格式的诊断报告"/>
+		</resource>
+
+		<resource>
+			<reference>
+				<!-- 本地资源定义（InspectRequest） -->
+				<reference value="StructureDefinition/inspect-request"/>
+			</reference>
+			<description value="描述医院内 临床医生对患者提交检查申请的资源，包括影像、超声、病理、心电等。"/>
+		</resource>
+
+		<resource>
+			<reference>
+				<!-- 本地资源定义（Media） -->
+				<reference value="StructureDefinition/Media"/>
+			</reference>
+			<description value="在医疗保健中获取或使用的照片，视频或音频记录"/>
+		</resource>
 	
 		
+		<resource>
+			<reference>
+				<!-- 资源示例 -->
+				<reference value="Specimen/LaboratorySpecimen001-example"/>
+			</reference>
+			<name value="实验室检验标本示例"/>
+			<description value="演示如何定义和引用实验室检验标本的简单示例"/>
+				<exampleCanonical value="http://fhir.scwjxx.cn/Sichuan/StructureDefinition/laboratory-specimen"/>
+		</resource>
+
+
+		<resource>
+			<reference>
+				<!-- 资源示例 -->
+				<reference value="ServiceRequest/LaboratoryRequest-example"/>
+			</reference>
+			<name value="实验室检验申请示例"/>
+			<description value="演示如何定义和引用实验室检验申请的简单示例"/>
+				<exampleCanonical value="http://fhir.scwjxx.cn/Sichuan/StructureDefinition/laboratory-request"/>
+		</resource>
+
+
+
+		<resource>
+			<reference>
+				<!-- 资源示例 -->
+				<reference value="Observation/LaboratoryRoutineObservation001-example"/>
+			</reference>
+			<name value="红细胞观测结果示例"/>
+			<description value="演示如何定义和引用红细胞观测结果的简单示例"/>	
+				<exampleCanonical value="http://fhir.scwjxx.cn/Sichuan/StructureDefinition/laboratory-routine-observation"/>
+		</resource>
+		
+		<resource>
+			<reference>
+				<!-- 资源示例 -->
+				<reference value="Observation/LaboratoryRoutineObservation002-example"/>
+			</reference>
+			<name value="白细胞观测结果示例"/>
+			<description value="演示如何定义和引用白细胞观测结果的简单示例"/>	
+				<exampleCanonical value="http://fhir.scwjxx.cn/Sichuan/StructureDefinition/laboratory-routine-observation"/>	
+		</resource>
+		
+		<resource>
+			<reference>
+				<!-- 资源示例 -->
+				<reference value="Observation/LaboratoryRoutineObservation003-example"/>
+			</reference>
+			<name value="血小板观测结果示例"/>
+			<description value="演示如何定义和引用白细胞观测结果的简单示例"/>
+				<exampleCanonical value="http://fhir.scwjxx.cn/Sichuan/StructureDefinition/laboratory-routine-observation"/>
+
+		</resource>
+
+		<resource>
+			<reference>
+				<!-- 资源示例 -->
+				<reference value="DiagnosticReport/LaboratoryReport-example"/>
+			</reference>
+			<name value="实验室检验报告示例"/>
+			<description value="演示如何定义和引用实验室检验报告的简单示例"/>
+				<exampleCanonical value="http://fhir.scwjxx.cn/Sichuan/StructureDefinition/laboratory-report"/>
+		</resource>
+
+<resource>
+			<reference>
+				<!-- 资源示例 -->
+				<reference value="ServiceRequest/InspectRequest-example"/>
+			</reference>
+			<name value="检查申请示例"/>
+			<description value="演示如何定义和引用检查申请的简单示例"/>
+				<exampleCanonical value="http://fhir.scwjxx.cn/Sichuan/StructureDefinition/inspect-request"/>
+		</resource>
+
+		<resource>
+			<reference>
+				<!-- 资源示例 -->
+				<reference value="DiagnosticReport/InspectReport-example"/>
+			</reference>
+			<name value="检查报告示例"/>
+			<description value="演示如何定义和引用检查报告的简单示例"/>
+				<exampleCanonical value="http://fhir.scwjxx.cn/Sichuan/StructureDefinition/inspect-report"/>
+		</resource>
+
+<resource>
+			<reference>
+				<!-- 资源示例 -->
+				<reference value="Media/Media001-example"/>
+			</reference>
+			<name value="检查报告媒体示例"/>
+			<description value="演示如何定义和引用检查报告媒体简单示例"/>
+				<exampleCanonical value="http://fhir.scwjxx.cn/Sichuan/StructureDefinition/Media"/>
+		</resource>
 
 		
 
