@@ -123,7 +123,6 @@
       <sliceName value="status" />
       <short value="检查申请单状态" />
       <definition value="描述检查申请单的各种状态" />
-      <min value="1" />
       <max value="1" />
       <type>
         <code value="Extension" />
@@ -153,7 +152,6 @@
       <path value="ServiceRequest.intent.extension" />
       <sliceName value="intent" />
       <definition value="描述该申请的意图&#xD;&#xA;proposal | plan | directive | order | original-order | reflex-order | filler-order | instance-order | option" />
-      <min value="1" />
       <max value="1" />
       <type>
         <code value="Extension" />
