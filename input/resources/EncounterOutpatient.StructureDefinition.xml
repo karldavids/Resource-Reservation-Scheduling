@@ -136,6 +136,7 @@
       <path value="Encounter.type" />
       <short value="医疗事件特定类型" />
       <definition value="描述医疗事件的特定类型，例如，电子邮件咨询，日间手术，熟练的护理，康复）。" />
+      <min value="1" />
       <max value="1" />
       <type>
         <code value="CodeableConcept" />
@@ -326,6 +327,7 @@
       <sliceName value="status" />
       <short value="患者在该段时段并且在该位置的状态" />
       <definition value="在指定的时间内，参与者在指定地点的存在状态。如果参与者不在该地点，那么该周期将有一个结束日期/时间。计划|活动|保留|完成" />
+      <min value="0" />
       <max value="1" />
       <type>
         <code value="Extension" />

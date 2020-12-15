@@ -10,7 +10,6 @@
   <title value="检查申请" />
   <status value="draft" />
   <date value="2020-12-07T02:05:12.157053+00:00" />
-  <description value="描述医院内 临床医生对患者提交检查申请的资源，包括影像、超声、病理、心电等。" />
   <fhirVersion value="4.0.0" />
   <mapping>
     <identity value="workflow" />
@@ -57,15 +56,15 @@
         <profile value="http://StructureDefinition.hl7fhir.cn/Identifier" />
       </type>
     </element>
-    <element id="ServiceRequest.identifier:inspect-Identifier">
+    <element id="ServiceRequest.identifier:inspectIdentifier">
       <path value="ServiceRequest.identifier" />
-      <sliceName value="inspect-Identifier" />
+      <sliceName value="inspectIdentifier" />
       <short value="检查申请单编号" />
       <max value="1" />
     </element>
-    <element id="ServiceRequest.identifier:other-Identifier">
+    <element id="ServiceRequest.identifier:otherIdentifier">
       <path value="ServiceRequest.identifier" />
-      <sliceName value="other-Identifier" />
+      <sliceName value="otherIdentifier" />
       <short value="其他编码" />
       <definition value="检查申请单的其他业务编号" />
     </element>
@@ -123,6 +122,7 @@
       <sliceName value="status" />
       <short value="检查申请单状态" />
       <definition value="描述检查申请单的各种状态" />
+      <min value="1" />
       <max value="1" />
       <type>
         <code value="Extension" />
@@ -152,6 +152,7 @@
       <path value="ServiceRequest.intent.extension" />
       <sliceName value="intent" />
       <definition value="描述该申请的意图&#xD;&#xA;proposal | plan | directive | order | original-order | reflex-order | filler-order | instance-order | option" />
+      <min value="1" />
       <max value="1" />
       <type>
         <code value="Extension" />
@@ -172,10 +173,10 @@
         <rules value="open" />
       </slicing>
     </element>
-    <element id="ServiceRequest.category:category-code">
+    <element id="ServiceRequest.category:CategoryCode">
       <path value="ServiceRequest.category" />
-      <sliceName value="category-code" />
-      <short value="检查申请的一级分类" />
+      <sliceName value="CategoryCode" />
+      <short value="检验申请的一级分类" />
       <definition value="为搜索、排序和显示目的而对服务进行分类的代码。如：CT检查、超声检查，MIR检查" />
       <max value="1" />
       <binding>
@@ -184,11 +185,10 @@
         <valueSet value="http://ValueSet.hl7fhir.cn/inspectrequest-category-vs" />
       </binding>
     </element>
-    <element id="ServiceRequest.category:other-category">
+    <element id="ServiceRequest.category:otherCategory">
       <path value="ServiceRequest.category" />
-      <sliceName value="other-category" />
+      <sliceName value="otherCategory" />
       <short value="检查其他分类" />
-      <definition value="检查申请单的其他维度的分类情况。" />
     </element>
     <element id="ServiceRequest.priority">
       <path value="ServiceRequest.priority" />
@@ -208,8 +208,7 @@
     <element id="ServiceRequest.priority.extension:priority">
       <path value="ServiceRequest.priority.extension" />
       <sliceName value="priority" />
-      <short value="优先级" />
-      <definition value="描述处理 该请求的速度" />
+      <short value="申请紧急" />
       <max value="1" />
       <type>
         <code value="Extension" />
@@ -244,8 +243,8 @@
     </element>
     <element id="ServiceRequest.subject">
       <path value="ServiceRequest.subject" />
-      <short value="患者信息" />
-      <definition value="订购服务的个人或实体，对谁执行服务。这通常是指病人，但也可以在动物、一组人或动物、透析仪等设备，甚至是位置(通常用于环境扫描)上提出请求" />
+      <short value="订购服务的个人或实体" />
+      <definition value="对谁执行服务。这通常是指病人，但也可以在动物、一组人或动物、透析仪等设备，甚至是位置(通常用于环境扫描)上提出请求" />
       <type>
         <code value="Reference" />
         <profile value="http://StructureDefinition.hl7fhir.cn/Reference" />
@@ -264,9 +263,6 @@
       <path value="ServiceRequest.occurrence[x]" />
       <short value="执行日期" />
       <definition value="该申请执行的时间或者时间段或者频率。" />
-      <type>
-        <code value="dateTime" />
-      </type>
     </element>
     <element id="ServiceRequest.asNeeded[x]">
       <path value="ServiceRequest.asNeeded[x]" />
@@ -323,9 +319,9 @@
       <short value="服务里有代码" />
       <definition value="以编码或文本形式描述请求此服务的解释或理由。这通常是为了计费。&quot;" />
     </element>
-    <element id="ServiceRequest.reasonCode:diagnosec-code">
+    <element id="ServiceRequest.reasonCode:DiagnoseCode">
       <path value="ServiceRequest.reasonCode" />
-      <sliceName value="diagnosec-code" />
+      <sliceName value="DiagnoseCode" />
       <short value="诊断信息" />
       <definition value="该患者的诊断编码信息 ICD-10" />
       <max value="1" />
@@ -335,9 +331,9 @@
         <valueSet value="http://ValueSet.hl7fhir.cn/condition-code-vs" />
       </binding>
     </element>
-    <element id="ServiceRequest.reasonCode:chief-complaint">
+    <element id="ServiceRequest.reasonCode:ChiefComplaint">
       <path value="ServiceRequest.reasonCode" />
-      <sliceName value="chief-complaint" />
+      <sliceName value="ChiefComplaint" />
       <short value="主述信息" />
       <definition value="描述该患者的主诉信息" />
       <max value="1" />
@@ -347,15 +343,15 @@
         <valueSet value="http://ValueSet.hl7fhir.cn/health-data-element-dictionary-vs" />
       </binding>
     </element>
-    <element id="ServiceRequest.reasonCode:chief-complaint.coding">
+    <element id="ServiceRequest.reasonCode:ChiefComplaint.coding">
       <path value="ServiceRequest.reasonCode.coding" />
       <fixedCoding>
         <code value="DE04.01.119.00" />
       </fixedCoding>
     </element>
-    <element id="ServiceRequest.reasonCode:previous-history">
+    <element id="ServiceRequest.reasonCode:PreviousHistory">
       <path value="ServiceRequest.reasonCode" />
-      <sliceName value="previous-history" />
+      <sliceName value="PreviousHistory" />
       <short value="症状（既往史）" />
       <definition value="描述患者的症状（既往史）信息。" />
       <max value="1" />
@@ -365,15 +361,15 @@
         <valueSet value="http://ValueSet.hl7fhir.cn/health-data-element-dictionary-vs" />
       </binding>
     </element>
-    <element id="ServiceRequest.reasonCode:previous-history.coding">
+    <element id="ServiceRequest.reasonCode:PreviousHistory.coding">
       <path value="ServiceRequest.reasonCode.coding" />
       <fixedCoding>
         <code value="DE04.01.117.00" />
       </fixedCoding>
     </element>
-    <element id="ServiceRequest.reasonCode:other-reasoncode">
+    <element id="ServiceRequest.reasonCode:otherReasonCode">
       <path value="ServiceRequest.reasonCode" />
-      <sliceName value="other-reasoncode" />
+      <sliceName value="otherReasonCode" />
       <short value="其他理由代码" />
       <definition value="以编码或文本形式描述请求此服务的解释或理由" />
     </element>

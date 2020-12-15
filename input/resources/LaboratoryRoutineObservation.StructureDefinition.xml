@@ -10,7 +10,6 @@
   <title value="常规检验观察结果" />
   <status value="draft" />
   <date value="2020-12-07T02:06:05.8522597+00:00" />
-  <description value="描述实验室常规检验的详细检验结果的反馈，如 生化检验、血液检验、临检检验的检验项目明细的具体结果。" />
   <fhirVersion value="4.0.1" />
   <mapping>
     <identity value="workflow" />

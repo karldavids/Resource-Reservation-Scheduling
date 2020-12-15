@@ -1,0 +1,149 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="MedicalStaff" />
+  <url value="http://StructureDefinition/hl7fhir.cn/MedicalStaff" />
+  <name value="MedicalStaff" />
+  <title value="医护人员" />
+  <status value="draft" />
+  <description value="直接或间接参与提供医疗健康服务的人员及其从业资格证" />
+  <fhirVersion value="4.0.0" />
+  <mapping>
+    <identity value="v2" />
+    <uri value="http://hl7.org/v2" />
+    <name value="HL7 v2 Mapping" />
+  </mapping>
+  <mapping>
+    <identity value="rim" />
+    <uri value="http://hl7.org/v3" />
+    <name value="RIM Mapping" />
+  </mapping>
+  <mapping>
+    <identity value="servd" />
+    <uri value="http://www.omg.org/spec/ServD/1.0/" />
+    <name value="ServD" />
+  </mapping>
+  <mapping>
+    <identity value="w5" />
+    <uri value="http://hl7.org/fhir/fivews" />
+    <name value="FiveWs Pattern Mapping" />
+  </mapping>
+  <kind value="resource" />
+  <abstract value="false" />
+  <type value="Practitioner" />
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Practitioner" />
+  <derivation value="constraint" />
+  <differential>
+    <element id="Practitioner.extension">
+      <path value="Practitioner.extension" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="url" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+    </element>
+    <element id="Practitioner.extension:ethnicity">
+      <path value="Practitioner.extension" />
+      <sliceName value="ethnicity" />
+      <type>
+        <code value="Extension" />
+        <profile value="http://StructureDefinition.hl7fhir.cn/ChineseEthnicity" />
+      </type>
+    </element>
+    <element id="Practitioner.extension:nationality">
+      <path value="Practitioner.extension" />
+      <sliceName value="nationality" />
+      <definition value="医务人员的国籍" />
+      <max value="1" />
+      <type>
+        <code value="Extension" />
+        <profile value="http://StructureDefinition.hl7fhir.cn/Nationality" />
+      </type>
+    </element>
+    <element id="Practitioner.extension:BriefIntroduction">
+      <path value="Practitioner.extension" />
+      <sliceName value="BriefIntroduction" />
+      <short value="医务人员简介" />
+      <definition value="医务人员简介" />
+      <type>
+        <code value="Extension" />
+        <profile value="http://StructureDefinition.hl7fhir.cn/BriefIntroduction" />
+      </type>
+    </element>
+    <element id="Practitioner.telecom">
+      <path value="Practitioner.telecom" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="system" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+    </element>
+    <element id="Practitioner.telecom:TelecomPhone">
+      <path value="Practitioner.telecom" />
+      <sliceName value="TelecomPhone" />
+      <short value="联系电话" />
+      <definition value="联系电话" />
+      <max value="1" />
+      <fixedContactPoint>
+        <system value="phone" />
+      </fixedContactPoint>
+    </element>
+    <element id="Practitioner.telecom:TelecomEmail">
+      <path value="Practitioner.telecom" />
+      <sliceName value="TelecomEmail" />
+      <short value="电子邮箱" />
+      <definition value="电子邮箱" />
+      <max value="1" />
+      <fixedContactPoint>
+        <system value="email" />
+      </fixedContactPoint>
+    </element>
+    <element id="Practitioner.gender">
+      <path value="Practitioner.gender" />
+      <short value="生理性别" />
+      <definition value="GB/T 2261.1" />
+      <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="AdministrativeGender" />
+        </extension>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-isCommonBinding">
+          <valueBoolean value="true" />
+        </extension>
+        <strength value="required" />
+        <description value="生理性别 GB/T 2261.1" />
+      </binding>
+    </element>
+    <element id="Practitioner.photo">
+      <path value="Practitioner.photo" />
+      <slicing>
+        <discriminator>
+          <type value="value" />
+          <path value="title" />
+        </discriminator>
+        <rules value="open" />
+      </slicing>
+    </element>
+    <element id="Practitioner.photo:headPortrait">
+      <path value="Practitioner.photo" />
+      <sliceName value="headPortrait" />
+      <short value="头像" />
+      <definition value="头像" />
+      <max value="1" />
+    </element>
+    <element id="Practitioner.photo:inchPhotos">
+      <path value="Practitioner.photo" />
+      <sliceName value="inchPhotos" />
+      <short value="寸照" />
+      <max value="1" />
+    </element>
+    <element id="Practitioner.photo:otherPhoto">
+      <path value="Practitioner.photo" />
+      <sliceName value="otherPhoto" />
+      <short value="其他照片" />
+      <definition value="其他照片" />
+    </element>
+  </differential>
+</StructureDefinition>

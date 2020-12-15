@@ -10,7 +10,6 @@
   <title value="检查报告" />
   <status value="draft" />
   <date value="2020-12-07T02:05:00.3457465+00:00" />
-  <description value="对患者、患者组对其身体部位进行的诊断试验的结果和解释。此报告包括了临床场景（如申请单、提供者信息），有些报告将单项指标结果、图像、文本和带编码的解释、以及带格式的诊断报告，主要描述医技检查报告。" />
   <fhirVersion value="4.0.0" />
   <mapping>
     <identity value="workflow" />
@@ -140,6 +139,7 @@
       <path value="DiagnosticReport.code" />
       <short value="检查报告分类代码" />
       <definition value="描述此检查报告的代码或名称，可描述检查打包项" />
+      <min value="1" />
       <type>
         <code value="CodeableConcept" />
         <profile value="http://StructureDefinition.hl7fhir.cn/CodeableConcept" />

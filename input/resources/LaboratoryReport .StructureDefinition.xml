@@ -1,15 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <StructureDefinition xmlns="http://hl7.org/fhir">
-  <id value="laboratory-report" />
-  <meta>
-    <versionId value="1" />
-    <lastUpdated value="2020-12-07T02:05:36.676+00:00" />
-  </meta>
+  <id value="iaboratory-report" />
   <url value="http://StructureDefinition.hl7fhir.cn/laboratory-report" />
   <name value="LaboratoryReport" />
   <title value="实验室报告" />
   <status value="draft" />
-  <date value="2020-12-07T02:05:37.2492042+00:00" />
   <fhirVersion value="4.0.0" />
   <mapping>
     <identity value="workflow" />
@@ -100,6 +95,7 @@
       <sliceName value="status" />
       <short value="检验报告状态" />
       <definition value="描述检验报告的各种状态" />
+      <min value="0" />
       <max value="1" />
       <type>
         <code value="Extension" />
@@ -128,13 +124,16 @@
     <element id="DiagnosticReport.category:CategoryCode">
       <path value="DiagnosticReport.category" />
       <sliceName value="CategoryCode" />
-      <short value="实验室检验分类代码" />
-      <definition value="为搜索、排序和显示目的而对服务进行分类的代码。如：生化检验、凝血检验" />
+      <short value="检验分类" />
+      <definition value="检验报告的实验室分类" />
       <max value="1" />
       <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="DiagnosticServiceSection" />
+        </extension>
         <strength value="example" />
-        <description value="实验室检验分类代码表" />
-        <valueSet value="http://ValueSet.hl7fhir.cn/laboratoryrequest-category-vs" />
+        <description value="检验分类" />
+        <valueSet value="http://ValueSet.hl7fhir.cn/diagnostic-service-sections" />
       </binding>
     </element>
     <element id="DiagnosticReport.category:otherCategory">
@@ -145,16 +144,15 @@
     </element>
     <element id="DiagnosticReport.code">
       <path value="DiagnosticReport.code" />
-      <short value="检验服务代码" />
+      <short value="检验报告分类代码" />
       <definition value="描述此检验报告的代码或名称，可描述检验打包项" />
-      <type>
-        <code value="CodeableConcept" />
-        <profile value="http://StructureDefinition.hl7fhir.cn/CodeableConcept" />
-      </type>
       <binding>
+        <extension url="http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName">
+          <valueString value="DiagnosticReportCodes" />
+        </extension>
         <strength value="preferred" />
         <description value="检验报告分类代码" />
-        <valueSet value="http://ValueSet.hl7fhir.cn/procedure-code-vs" />
+        <valueSet value="http://ValueSet.hl7fhir.cn/report-codes-vs" />
       </binding>
     </element>
     <element id="DiagnosticReport.subject">
